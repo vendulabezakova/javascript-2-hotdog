@@ -12,13 +12,12 @@ const toppings = [
   
   export function renderToppings() {
     const toppingsContainer = document.getElementById('toppings-container');
-    toppingsContainer.innerHTML = ''; // Vyčištění obsahu kontejneru před vykreslením
+    toppingsContainer.innerHTML = ''; 
   
     toppings.forEach((topping, index) => {
       const toppingDiv = document.createElement('div');
       toppingDiv.classList.add('topping');
   
-      // Pokud je přísada vybraná, přidáme třídu topping--selected
       if (topping.selected) {
         toppingDiv.classList.add('topping--selected');
       }
@@ -32,12 +31,11 @@ const toppings = [
       toppingDiv.appendChild(toppingName);
       toppingDiv.appendChild(toppingPrice);
   
-      // Přidání posluchače události "click" na každou přísadu
+      // EventListener na přísady
       toppingDiv.addEventListener('click', () => {
         // Přepnutí stavu vybrané přísady
         toppings[index].selected = !toppings[index].selected;
   
-        // Přepnutí třídy topping--selected pro zvýraznění přísady
         toppingDiv.classList.toggle('topping--selected');
 
       });
